@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+ http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+   <!-- 扫描服务-->
+    <context:component-scan base-package="poggyio.uc.api"/>
+    <context:component-scan base-package="poggyio.daily.api"/>
+
+    <!-- 提供方应用信息，用于计算依赖关系 -->
+    <dubbo:application name="poggyio"/>
+
+    <!-- 注册中心暴露服务地址 -->
+    <dubbo:registry address="zookeeper://10.111.12.205:2181"  file="/tmp/dubbo.cache/"
+                    register="false"/>
+
+    <dubbo:monitor protocol="registry"/>
+
+    <dubbo:protocol port="-1"/>
+
+    <dubbo:reference id="tokenService" interface="poggyio.uc.api.TokenService" check="false" timeout="3000"/>
+    <!--<dubbo:reference id="dailyReadingService" interface="poggyio.daily.api.DailyReadingService" check="false" timeout="3000"/>-->
+    <!--<dubbo:reference id="dailyAttachmentService" interface="poggyio.daily.api.DailyAttachmentService" check="false" timeout="3000"/>-->
+    <!--<dubbo:reference id="dailyCommentService" interface="poggyio.daily.api.DailyCommentService" check="false" timeout="3000"/>-->
+    <dubbo:reference id="dailyService" interface="poggyio.daily.api.DailyService" check="false" timeout="3000"/>
+    <!--<dubbo:reference id="templateColService" interface="poggyio.daily.api.TemplateColService" check="false" timeout="3000"/>-->
+    <dubbo:reference id="templateService" interface="poggyio.daily.api.TemplateService" check="false" timeout="3000"/>
+    <!--<dubbo:reference id="templateExtendedService" interface="poggyio.daily.api.TemplateExtendedService" check="false" timeout="3000"/>-->
+
+    <!-- 读取配置文件 -->
+    <bean id="propertyPlaceholderConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location">
+            <value>classpath:application.properties</value>
+        </property>
+    </bean>
+
+    <util:properties id="serverSettings" location="classpath:application.properties"/>
+
+    <!--<context:property-placeholder location="classpath:server.properties" ignore-unresolvable="true" />-->
+
+</beans>

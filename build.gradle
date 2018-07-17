@@ -1,0 +1,71 @@
+buildscript {
+	ext {
+		springBootVersion = '2.1.0.BUILD-SNAPSHOT'
+	}
+	repositories {
+		mavenCentral()
+		maven { url "https://repo.spring.io/snapshot" }
+		maven { url "https://repo.spring.io/milestone" }
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.xinyi'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+    maven {
+        name 'repository'
+        credentials {
+            username 'admin'
+            password 'admin123'
+        }
+        url 'http://mvn.dev.51juban.cn/nexus/content/repositories/snapshots/'
+    }
+
+    maven {
+        name 'repository'
+        credentials {
+            username 'admin'
+            password 'admin123'
+        }
+        url 'http://mvn.dev.51juban.cn/nexus/content/repositories/releases/'
+    }
+    mavenLocal()
+
+    maven {
+        name 'repository'
+        url 'http://maven.aliyun.com/nexus/content/groups/public/'
+    }
+
+	mavenCentral()
+	maven { url "https://repo.spring.io/snapshot" }
+	maven { url "https://repo.spring.io/milestone" }
+
+}
+
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-web')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+    compile group: 'io.dubbo.springboot', name: 'spring-boot-starter-dubbo', version: '1.0.0'
+
+    compile(group: 'com.alibaba', name: 'dubbo', version: '2.5.3'){
+        exclude group:'org.springframework', module:'*'
+    }
+
+    compile 'poggyio:poggyio-daily-api:3.5.0-SNAPSHOT'
+    compile 'poggyio:poggyio-daily:3.5.0-SNAPSHOT'
+    compile 'poggyio:poggyio-daily-bootstrap:3.5.0-SNAPSHOT'
+    compile 'poggyio:poggyio-daily-engine:3.5.0-SNAPSHOT'
+    compile "poggyio:poggyio-uc-api:3.5.0-SNAPSHOT"
+}
+
