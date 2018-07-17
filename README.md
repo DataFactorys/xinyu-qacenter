@@ -11,9 +11,9 @@ Design Philosophy
 新手入门手册
 环境要求
 -----------------
-jdk1.8
-gradle4.8.1
-IDEA
+jdk1.8<br>
+gradle4.8.1<br>
+IDEA<br>
 
 
 构建第一个springBoot项目
