@@ -5,13 +5,13 @@ Design Philosophy
 -----------------
 基于springBoot的封装开发dubbo接口的http平台：本篇是数据工厂的兄弟平台，主要目的是封装开发一系列dubbo接口，包装成一个http接口，用于DataManager平台事务调用，通过这样来完成造数据目的。
 举个列子：某电商平台要测试交易过程，测试人员通过手机app测试，需要完成以下动作：用户登录、进入店铺、选择商品、提交订单、支付...，而数据工厂可以把这一系列操作封装成一个http接口，这个http接口
-主需要传登录用户的手机号码、店铺id、商品id、支付金额，后端接口逻辑：通过手机号码调dubbo接口获取userId，通过userId、商品id调创建订单dubbo接口、通过支付金额调支付订单dubbo接口。
+只需要传登录用户的手机号码、店铺id、商品id、支付金额，后端接口逻辑：通过手机号码调dubbo接口获取userId，通过userId、商品id调创建订单dubbo接口、通过支付金额调支付订单dubbo接口。
 
 
 兄弟项目
 --------
 基于Django的数据工厂平台，这两个个项目配合起来才能用哦
-https://github.com/DataFactorys/xinyu-qacenter
+https://github.com/DataFactorys/qacenter
 
 新手入门手册
 环境要求
