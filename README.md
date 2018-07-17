@@ -47,7 +47,7 @@ IDEA<br>
     ![result](https://github.com/DataFactorys/xinyu-qacenter/blob/master/images/result.png)<br>
     <br>
 4.resources
-    service.xml文件中配置zookeeper和dubbo接口
+    service.xml文件中配置zookeeper和dubbo接口<br>
     ![resources](https://github.com/DataFactorys/xinyu-qacenter/blob/master/images/resources.png)<br>
     示例：
     ![dubbo接口配置](https://github.com/DataFactorys/xinyu-qacenter/blob/master/images/service.png)<br>
@@ -55,3 +55,16 @@ IDEA<br>
 5.build.gradle，这里是配置mvn私服地址，还有依赖包
     ![gradle配置](https://github.com/DataFactorys/xinyu-qacenter/blob/master/images/gradle.png)<br>
     <br>
+6.application.properties中配置
+    server.port=9111，启动的端口号，我配置的是9111
+    启动后，浏览器输入http://127.0.0.1:9111/sayhello，如果出现Hello SpringBoot !，说明启动成功
+
+springBoot项目启动方式
+-----------------
+1 很简单，直接鼠标右击项目，run启动项目
+
+2 项目目录下的命令行  mvn spring-boot:run
+
+　　或者  gradlew bootRun
+
+3 进入libs下或者target下 java -jar xxx.jar
