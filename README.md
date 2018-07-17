@@ -8,6 +8,11 @@ Design Philosophy
 主需要传登录用户的手机号码、店铺id、商品id、支付金额，后端接口逻辑：通过手机号码调dubbo接口获取userId，通过userId、商品id调创建订单dubbo接口、通过支付金额调支付订单dubbo接口。
 
 
+兄弟项目
+--------
+基于Django的数据工厂平台，这两个个项目配合起来才能用哦
+https://github.com/DataFactorys/xinyu-qacenter
+
 新手入门手册
 环境要求
 -----------------
