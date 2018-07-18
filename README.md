@@ -39,12 +39,15 @@ IDEA<br>
     ![exp](https://github.com/DataFactorys/xinyu-qacenter/blob/master/images/exp.png)<br>
     DataManager中新增事务，填上findDaily接口地址：http://127.0.0.1:9111/xinyu/findDaily，填上入参1：日志id，再填写其他必填信息
     ![findDaily](https://github.com/DataFactorys/xinyu-qacenter/blob/master/images/findDaily.png)<br>
+    ![findDailyRequest](https://github.com/DataFactorys/xinyu-qacenter/blob/master/images/findDailyRequest.png)<br>
+    ![findDailyResult](https://github.com/DataFactorys/xinyu-qacenter/blob/master/images/findDailyResult.png)<br>
     <br>
     我们再来看一个带有下拉框的事务
     下图中新增日志事务，员工工号、模板列表、接收人都是下拉框，都需要调http接口
     ![getTemplateList](https://github.com/DataFactorys/xinyu-qacenter/blob/master/images/getTemplateList.png)<br>
     我们就看下模板列表http接口实现，直接是调dubbo接口获取模板list，在封装成map返回给前端
     ![getTemplate](https://github.com/DataFactorys/xinyu-qacenter/blob/master/images/getTemplate.png)<br>
+    ![调下拉框接口](https://github.com/DataFactorys/xinyu-qacenter/blob/master/images/getTemplateResult.png)<br>
     <br>
 3.result里是封装的返回
     看过DataManager的童鞋应该清楚，DataManager那边要求http接口的返回值有格式要求，示例：{'status': true,'responseCode': 1,'message': '登录成功','entry': {'type1': 'buyer','type2': 'seller','type3': '测试','type4': '开发'}}
